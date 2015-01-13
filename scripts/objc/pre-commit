@@ -16,12 +16,12 @@
 ##################################################################
 # SETTINGS
 # set uncrustify path or executable
-UNCRUSTIFY="/Users/fengjunwen/bin/uncrustify"
 #UNCRUSTIFY="uncrustify"
+UNCRUSTIFY="~/footstone/scripts/uncrustify"
 
 # set uncrustify config location
-CONFIG="/Users/fengjunwen/.config/objc.cfg"
 #CONFIG="/unspecified/"
+CONFIG="~/footstone/config/objc.cfg"
 
 # the source language: C, CPP, D, CS, JAVA, PAWN, VALA, OC, OC+
 # SOURCE_LANGUAGE="CPP"
