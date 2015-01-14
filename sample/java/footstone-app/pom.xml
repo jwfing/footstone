@@ -15,4 +15,70 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <properties>
+    <checkstyle.file.path>config/google_checks.xml</checkstyle.file.path>
+  </properties>
+  <build>
+    <plugins>
+	    <!-- -->
+     <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-checkstyle-plugin</artifactId>
+      <version>2.13</version>
+      <executions>
+        <execution>
+          <id>validate</id>
+	  <phase>validate</phase>
+          <goals>
+            <goal>check</goal>
+          </goals>
+          <configuration>
+	    <configLocation>${checksytle.file.path}</configLocation>
+            <encoding>UTF-8</encoding>
+            <excludes>**/test/**/*, **/package-info.java</excludes>
+            <consoleOutput>true</consoleOutput>
+            <failsOnError>false</failsOnError>
+            <linkXRef>false</linkXRef>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+    <!-- -->
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cobertura-maven-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+        <formats>
+          <format>html</format>
+          <format>xml</format>
+        </formats>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <reportPlugins>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>findbugs-maven-plugin</artifactId>
+            </plugin>
+          </reportPlugins>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 </project>
